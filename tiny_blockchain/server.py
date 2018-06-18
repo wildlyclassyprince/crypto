@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+# The suspects ...
 from flask import Flask
 from flask import request
 node = Flask(__name__)
@@ -23,4 +24,5 @@ def transaction():
         # Then we let the client know it worked out
         return 'Transaction submission successful.\n'
 
+# Running the server ...
 node.run()
