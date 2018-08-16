@@ -4,6 +4,8 @@
 
 In other words, the blockchain is a public database where new data is immutably appended to a chain of historical records. It has given rise to new digital currencies that have no central authority.
 
+In this repo we will build a mock implementation (in Python) of a cryptocurrency based on the blockchain.
+
 To run the app, type in the following:
 
 1. `./run.sh` to start the server.
