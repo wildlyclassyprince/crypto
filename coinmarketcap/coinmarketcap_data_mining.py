@@ -25,13 +25,13 @@ url = 'https://coinmarketcap.com/tokens/views/all/'
 # Use Pandas to return first table on page
 df = pd.read_html(url, attrs = {'id': 'assets-all'})[0]
 
-# New column names
-df.columns = ['#', 'Name', 'Platform', 'MarketCap', 'Price', 'Supply', 'VolumeDay', 'pctHour', 'pctDay', 'pctWeek']
+# New column names (there is a new column at the end of the column list):
+df.columns = ['#', 'Name', 'Platform', 'MarketCap', 'Price', 'Supply', 'VolumeDay', 'pctHour', 'pctDay', 'pctWeek', 'NewCol']
 
 # Build an upper case name column so we can sort on it more easily
 df['NameUpper'] = map(lambda x: x.upper(), df['Name'])
 
-# Clean the data with 'numbers' by removing $, % and , characters
+# Cleaning numeric data:
 df['Price'] = df['Price'].str.replace('$', '')
 df['MarketCap'] = df['MarketCap'].str.replace('$', '')
 df['MarketCap'] = df['MarketCap'].str.replace(',', '')
