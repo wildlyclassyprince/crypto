@@ -45,7 +45,7 @@ df['pctWeek'] = df['pctWeek'].str.replace('%', '')
 # Filter for rows only containing Ethereum and a MarketCap value
 df = df.loc[(df['Platform'] == 'Ethereum') & (df['MarketCap'] != '?')]
 
-# Covert 'number' columns to numeric type
+# Convert numeric columns to numeric type 
 def coerce_df_columns_to_numeric(df, column_list):
     df[column_list] = df[column_list].apply(pd.to_numeric, errors='coerce')
 
@@ -69,19 +69,19 @@ def sort_price(df):
     return sort_dataframe(df, 'Price', False).ix[:, [1, 4]]
 
 def sort_volume(df):
-    '''Returns sorted volumes.'''
+    '''Returns sorted volume values.'''
     return sort_dataframe(df, 'VolumeDay', False).ix[:, [1, 6]]
 
 def sort_hour(df):
-    '''Returns timestamps sorted by hours.'''
+    '''Returns sorted hourly percentages.'''
     return sort_dataframe(df, 'pctHour', False).ix[:, [1, 7]]
 
 def sort_day(df):
-    '''Returns timestamps sorted by days.'''
+    '''Returns sorted daily percentages.'''
     return sort_dataframe(df, 'pctDay', False).ix[:, [1, 8]]
 
 def sort_week(df):
-    '''Returns timestamps sorted by weeks.'''
+    '''Returns sorted weekly percentages.'''
     return sort_dataframe(df, 'pctWeek', False).ix[:, [1, 9]]
 
 # Printing sorted dataframe in a tabulated format
@@ -90,7 +90,7 @@ def print_tabulated(df):
     print tabulate.tabulate(df, headers='keys', showindex='false', numalign='right')
 
 def report():
-    print('Title  : ' + 'CryptoAsset Market Capitalizations')
+    print('Title   : ' + 'CryptoAsset Market Capitalizations')
     print ('       : ' + 'Etheruem with Market Cap')
     print ('Source : ' + url)
     print ('Time   : ' + str(datetime.now().strftime('%Y-%m-%d %H:%M')))
