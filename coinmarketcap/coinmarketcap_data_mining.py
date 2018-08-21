@@ -22,8 +22,8 @@ from datetime import datetime
 
 url = 'https://coinmarketcap.com/tokens/views/all/'
 
-# Use Pandas to return first table on page
-df = pd.read_html(url, attrs = {'id': 'assets-all'})[0]
+# Use Pandas to return the first table on the page
+df = pd.read_html(url, attrs={'id': 'assets-all'})[0]
 
 # New column names (there is a new column at the end of the column list):
 df.columns = ['#', 'Name', 'Platform', 'MarketCap', 'Price', 'Supply', 'VolumeDay', 'pctHour', 'pctDay', 'pctWeek', 'NewCol']
@@ -35,6 +35,7 @@ df = df.drop('NewCol', axis=1)
 #df['NameUpper'] = map(lambda x: x.upper(), df['Name'])
 
 # Cleaning numeric data:
+df['Name'] = df['Name'].apply(lambda x: x.upper())
 df['Price'] = df['Price'].str.replace('$', '')
 df['MarketCap'] = df['MarketCap'].str.replace('$', '')
 df['MarketCap'] = df['MarketCap'].str.replace(',', '')
@@ -61,7 +62,7 @@ def sort_dataframe(df, col, ascending=True):
 
 def sort_name(df):
     '''Returns sorted dataframe value names.'''
-    return sort_dataframe(df, 'NameUpper', True).iloc[:, [1, 3, 4, 5, 6]]
+    return sort_dataframe(df, 'Name', True).iloc[:, [1, 3, 4, 5, 6]]
 
 def sort_marketcap(df):
     '''Returns sorted MarketCap values.'''
