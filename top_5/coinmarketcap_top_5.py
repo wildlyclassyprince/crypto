@@ -48,7 +48,7 @@ df['pctWeek'] = df['pctWeek'].str.replace('%', '')
 # Filter for rows only containing Ethereum and a MarketCap value
 df = df.loc[(df['Platform'] == 'Ethereum') & (df['MarketCap'] != '?')]
 
-# Conver numeric columns to numeric type
+# Convert numeric columns to numeric type
 def coerce_df_columns_to_numeric(df, column_list):
     df[column_list] = df[column_list].apply(pd.to_numeric, errors='coerce')
     
