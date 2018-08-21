@@ -114,4 +114,4 @@ def report():
     print_tabulated(sort_week(df))
 
 if __name__ == '__main__':
-report()
+    report()
