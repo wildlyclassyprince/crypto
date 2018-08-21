@@ -25,4 +25,14 @@ We need to sort the order of values before we print out the output. We define a 
 ```python
 def sort_dataframe(df, col, ascending=True):
     '''Returns sorted dataframe values.'''
+    return df.sort_values([col], ascending=ascending)
 ```
+
+The output is printed in a _pretty_ tabulatar format using the function:
+```python
+def print_tabulated(df):
+    '''Prints the sorted dataframe in a tabular format.'''
+    print(tabulate.tabulate(df, headers='keys', showindex='false', numalign='right'))
+```
+
+All the output is wrapped to together by the `report()` function, which prints all the output.
