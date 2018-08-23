@@ -14,4 +14,4 @@ A collection of blockchain tutorials and mock implementations. The purpose of th
 |Data Playground|
 |---|
 |**Coinmarketcap Data Mining**<br>In this repo we will be mining Ethereum data with a Market Cap from [Coinmarketcap](https://coinmarketcap.com)|
-|**Top 5**<br>A simple script for obtaining the top 5 crypto market capitalizations.|
+|**Top 5**<br>A script for obtaining the top 5 crypto market capitalizations. It can be run from the commandline by typing `top5` (Currently on shows market capitalizations for Ethereum).|
