@@ -105,7 +105,7 @@ def report():
     print('Title     : ' + 'CryptoAsset Market Capitalizations (Top 10)')
     print('          : ' + 'Ethereum with Market Cap')
     print('Source    : ' + url)
-    print('Time      : ' + str(datatime.now().strftime('%Y-%m-%d %H:%M')))
+    print('Time      : ' + str(datetime.now().strftime('%Y-%m-%d %H:%M')))
     print('')
     print('')
     print_tabulated(sort_name(df))
