@@ -3,9 +3,10 @@
 This script downloads data from `CryptoCurrency Market Capitalizations` and filters for the top 5 data with a Market Cap. Data is downloaded from [CoinMarketCap](https://coinmarketcap.com/).
 
 Requirements:
->- pandas (0.23.0 or higher)
+>- pandas (0.23.0)
 >- tabulate (0.82)
 >- datetime (4.2)
+>- setuptools (39.1.0)
 
 Data is downloaded from [`https://coinmarketcap.com/tokens/views/all`](https://coinmarketcap.com/tokens/views/all)
 
@@ -37,7 +38,7 @@ def print_tabulated(df):
 
 All the output is wrapped to together by the `report()` function, which prints all the output.
 
-The `coinmarketcap_top_5.py` file has a `setup.py` file which enables us to access the `coinmarketcap_top_5.py` file from the commandline. 
+The `coinmarketcap_top_5.py` file has a `setup.py` file which enables us to access the `coinmarketcap_top_5.py` file from the commandline. :notes:
 
 To build:
 ```shell
