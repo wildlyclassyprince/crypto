@@ -9,12 +9,6 @@ Requirements:
 
 Data is downloaded from [`https://coinmarketcap.com/tokens/views/all`](https://coinmarketcap.com/tokens/views/all)
 
-The `coinmarketcap_top_5.py` file has a `setup.py` file which enables us to access the `coinmarketcap_top_5.py` file from the commandline. To build, run the following:
-```shell
-$ python3 setup.py develop
-$ top5
-```
-
 To convert numeric columns to numeric values, we have the function:
 ```python
 def coerce_df_columns_to_numeric(df, column_list):
@@ -43,9 +37,21 @@ def print_tabulated(df):
 
 All the output is wrapped to together by the `report()` function, which prints all the output.
 
+The `coinmarketcap_top_5.py` file has a `setup.py` file which enables us to access the `coinmarketcap_top_5.py` file from the commandline. 
+
+To build:
+```shell
+$ python3 setup.py develop
+```
+
+To run the program:
+```shell
+$ top5
+```
 
 ### To-Do
 
-- [ ] Write tests for the script.
 - [x] Add `setup.py` for running script in terminal.
+- [ ] Write tests for the script.
+- [ ] Carry out initial tests.
 - [ ] Add support for other cryptos (Current implementation is for Ethereum only).
