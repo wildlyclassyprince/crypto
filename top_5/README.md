@@ -38,7 +38,7 @@ def print_tabulated(df):
 
 All the output is wrapped to together by the `report()` function, which prints all the output.
 
-The `coinmarketcap_top_5.py` file has a `setup.py` file which enables us to access the `coinmarketcap_top_5.py` file from the commandline. :notes:
+The `coinmarketcap_top_5.py` file has a `setup.py` file which enables us to access the `coinmarketcap_top_5.py` file from the commandline ... :notes:
 
 To build:
 ```shell
