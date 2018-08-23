@@ -18,10 +18,10 @@ from setuptools import setup
 
 # The setup
 setup(
-    name='top5'
+    name='top5',
     entry_points={
         'console_scripts':[
-            'top5=coinmarketcap_top_5:main',
+            'top5=coinmarketcap_top_5:report',
         ],
     }
 )
