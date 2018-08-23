@@ -47,5 +47,5 @@ All the output is wrapped to together by the `report()` function, which prints a
 ### To-Do
 
 - [ ] Write tests for the script.
-- [ ] Add `setup.py` for running script in terminal.
+- [x] Add `setup.py` for running script in terminal.
 - [ ] Add support for other cryptos (Current implementation is for Ethereum only).
