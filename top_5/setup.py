@@ -6,13 +6,6 @@ the command line.
 We will use entry points as a modular plug-in architecture.
 '''
 
-__author__ = "wildlyclassyprince"
-__license__ = "GNU"
-__version__ = "0.1.0"
-__maintainer__ = "wildlyclassyprince"
-__email__ = "lihtumb@gmail.com"
-__status__ = "Initial Script"
-
 # The suspect ...
 from setuptools import setup
 
@@ -23,5 +16,10 @@ setup(
         'console_scripts':[
             'top5=coinmarketcap_top_5:report',
         ],
-    }
+    },
+    author="wildlyclassyprince",
+    email="lihtumb@gmail.com",
+    license="GNU",
+    version="0.1.0",
+    url="https://github.com/wildlyclassyprince/crypto/tree/master/top_5"
 )
