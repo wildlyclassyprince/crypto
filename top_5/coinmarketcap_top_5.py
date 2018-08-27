@@ -14,17 +14,15 @@ __email__ = "lihtumb@gmail.com"
 __status__ = "Initial Script"
 
 # The usual suspects ...
+from datetime import datetime
 import pandas as pd
 import tabulate
 
-# And their accomplices ...
-from datetime import datetime
-
 # Data location
-url = 'https://coinmarketcap.com/tokens/views/all'
+URL = 'https://coinmarketcap.com/tokens/views/all'
 
 # Using Pandas to return the first table on the page
-df = pd.read_html(url, attrs={'id': 'assets-all'})[0]
+df = pd.read_html(URL, attrs={'id': 'assets-all'})[0]
 
 # New column names (there is a new column at the end of the column list):
 df.columns = ['#', 'Name', 'Platform', 'MarketCap', 'Price', 'CirculatingSupply',
@@ -49,8 +47,9 @@ df = df.loc[(df['Platform'] == 'Ethereum') & (df['MarketCap'] != '?')]
 
 # Convert numeric columns to numeric type
 def coerce_df_columns_to_numeric(df, column_list):
+    '''Convert numeric columns to numeric type.'''
     df[column_list] = df[column_list].apply(pd.to_numeric, errors='coerce')
-    
+
 coerce_df_columns_to_numeric(df, ['MarketCap', 'Price', 'CirculatingSupply',
                                   'VolumeDay', 'pctHour', 'pctDay', 'pctWeek'])
 
@@ -91,12 +90,13 @@ def sort_week(df):
 def print_tabulated(df):
     '''Prints the sorted dataframe in a tabular format.'''
     print(tabulate.tabulate(df, headers='keys', showindex='false', numalign='right'))
-    
+
 # Putting it all together:
 def report():
+    '''Putting it all together ...'''
     print('Title     : ' + 'CryptoAsset Market Capitalizations (Top 10)')
     print('          : ' + 'Ethereum with Market Cap')
-    print('Source    : ' + url)
+    print('Source    : ' + URL)
     print('Time      : ' + str(datetime.now().strftime('%Y-%m-%d %H:%M')))
     print('')
     print('')
@@ -113,6 +113,6 @@ def report():
     print_tabulated(sort_day(df))
     print('')
     print_tabulated(sort_week(df))
-    
+
 if __name__ == '__main__':
     report()
