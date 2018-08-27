@@ -50,9 +50,14 @@ To run the program:
 $ top5
 ```
 
+To run tests:
+```shell
+$ python3 -m pytest -v tests.py
+```
+
 ### To-Do
 
 - [x] Add `setup.py` for running script in terminal.
-- [ ] Write tests for the script.
-- [ ] Carry out initial tests.
+- [x] Write tests for the script.
+- [x] Carry out initial tests.
 - [ ] Add support for other cryptos (Current implementation is for Ethereum only).
