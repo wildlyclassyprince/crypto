@@ -10,19 +10,19 @@ Requirements:
 
 Data is downloaded from [`https://coinmarketcap.com/tokens/views/all`](https://coinmarketcap.com/tokens/views/all)
 
-To convert numeric columns to numeric values, we have the function:
+When we download the data, not all values are in the appropriate formats. Most are coerced to be string objects. To convert numeric columns to numeric values, we have the function:
 ```python
 def coerce_df_columns_to_numeric(df, column_list):
     df[column_list] = df[column_list].apply(pd.to_numeric, errors='coerce')
 ```
 
-Where we convert _Market Cap, Price, Circulating Supply, Volume (24h), Hourly, Daily and Weekly Percentages_ to numeric values:
+And we use it to convert _Market Cap, Price, Circulating Supply, Volume (24h), Hourly, Daily and Weekly Percentages_ to numeric values:
 ```python
 coerce_df_columns_to_numeric(df, ['MarketCap', 'Price', 'CirculatingSupply',
                                   'VolumeDay', 'pctHour', 'pctDay', 'pctWeek'])
 ```
 
-We need to sort the order of values before we print out the output. We define a function that returns sorted values of the dataframe based the column we wish to sort by:
+We also need to sort the order of values before we print out the output. We define a function that returns sorted values of the dataframe based the column we wish to sort:
 ```python
 def sort_dataframe(df, col, ascending=True):
     '''Returns sorted dataframe values.'''
