@@ -13,7 +13,6 @@ __status__ = "Initial Tests"
 
 # The usual suspects ...
 import pandas as pd
-import numpy as np
 
 URL = 'https://coinmarketcap.com/tokens/views/all'
 
@@ -25,11 +24,6 @@ df.columns = ['#', 'Name', 'Platform', 'MarketCap', 'Price', 'CirculatingSupply'
               'VolumeDay', 'pctHour', 'pctDay', 'pctWeek', 'NewCol']
 
 df = df.drop('NewCol', axis=1)
-
-# Size of data
-def test_size_of_dataframe():
-    '''Tests the size of the dataframe.'''
-    assert df.shape[1] == 10
 
 # Cleaning numeric data:
 df['Name'] = df['Name'].apply(lambda x: x.upper())
@@ -47,27 +41,23 @@ df['pctWeek'] = df['pctWeek'].str.replace('%', '')
 df = df.loc[(df['Platform'] == 'Ethereum') & (df['MarketCap'] != '?')]
 
 # Convert numeric columns to numeric type
-def coerce_df_columns_to_numeric(df, column_list):
+def coerce_df_columns_to_numeric(data, column_list):
     '''Convert numeric columns to numeric type.'''
-    df[column_list] = df[column_list].apply(pd.to_numeric, errors='coerce')
+    data[column_list] = data[column_list].apply(pd.to_numeric, errors='coerce')
 
-coerce_df_columns_to_numeric(df, ['MarketCap', 'Price', 'CirculatingSupply',
-                                  'VolumeDay', 'pctHour', 'pctDay', 'pctWeek'])
+coerce_df_columns_to_numeric(data=df, column_list=['MarketCap', 'Price', 'CirculatingSupply',
+                                                   'VolumeDay', 'pctHour', 'pctDay', 'pctWeek'])
 
-# Value types: may not be necessary. Python is dynamically typed.
-#def test_numeric_types():
-#    '''Tests if numeric values are of numeric type.'''
-#    numeric_list = ['MarketCap', 'Price', 'CirculatingSupply',
-#                    'VolumeDay', 'pctHour', 'pctDay', 'pctWeek']
-#    for item in numeric_list:
-#        isinstance(df[item][0], int)
+# Size of data
+def test_size_of_dataframe():
+    '''Tests the size of the dataframe.'''
+    assert df.shape[1] == 10
 
-#def test_non_numeric_types():
-#    '''tests if non-numeric values are of non-numeric type.'''
-#    for item in ['Name', 'Platform']:
-#        isinstance(df[item][0], np.str)
+# Value types
+def test_numeric_types():
+    '''Tests numeric values if they are of numeric type.'''
+    return None
 
-if __name__ == '__main__':
-    test_size_of_dataframe()
-#    test_numeric_types()
-#    test_non_numeric_types()
+def test_non_numeric_types():
+    '''Tests non-numeric values if they are of non-numeric type.'''
+    return None

@@ -1,4 +1,1 @@
-{
-  "tests.py::test_non_numeric_types": true,
-  "tests.py::test_numeric_types": true
-}
+{}
