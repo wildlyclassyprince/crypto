@@ -14,19 +14,23 @@ __status__="Initial Tests"
 # The usual suspects ...
 from datetime import datetime
 import pandas as pd
-import tabulate
-import coinmarketcap_top_5 as top5
+import numpy as np
 
 URL = 'https://coinmarketcap.com/tokens/views/all'
 
 # Using Pandas to return the first table on the page
-df = pd.read_html(URL, attrs={'id': 'assets-all'})[0]
+df = pd.read_html(URL, attrs={'id': 'assets-all'})[0].head()
 
 # New column names:
 df.columns = ['#', 'Name', 'Platform', 'MarketCap', 'Price', 'CirculatingSupply',
               'VolumeDay', 'pctHour', 'pctDay', 'pctWeek', 'NewCol']
 
 df = df.drop('NewCol', axis=1)
+
+# Size of data
+def test_size_of_dataframe():
+    '''Tests the size of the dataframe.'''
+    assert(df.shape[1]==10)
 
 # Cleaning numeric data:
 df['Name'] = df['Name'].apply(lambda x: x.upper())
@@ -52,18 +56,23 @@ coerce_df_columns_to_numeric(df, ['MarketCap', 'Price', 'CirculatingSupply',
                                   'VolumeDay', 'pctHour', 'pctDay', 'pctWeek'])
 
 # Value types
-def check_numeric_types():
-    '''Checks if numeric values are of numeric type.'''
-    assert isinstance(df['MarketCap'], int)
-    assert isinstance(df['Price'], int)
-    assert isinstance(df['CirculatingSupply', int])
-    assert isinstance(df['VolumeDay'], int)
-    assert isinstance(df['pctHour'], int)
-    assert isinstance(df['pctDay'], int)
-    assert isinstance(df['pctWeek'], int)
+def test_numeric_types():
+    '''tests if numeric values are of numeric type.'''
+    assert isinstance(df['#'][0], np.int64)
+    assert isinstance(df['MarketCap'][0], np.int64)
+    assert isinstance(df['Price'][0], np.int64)
+    assert isinstance(df['CirculatingSupply'][0], np.int64)
+    assert isinstance(df['VolumeDay'][0], np.int64)
+    assert isinstance(df['pctHour'][0], np.int64)
+    assert isinstance(df['pctDay'][0], np.int64)
+    assert isinstance(df['pctWeek'][0], np.int64)
     
-def check_non_numeric_types():
-    '''Checks if non-numeric values are of non-numeric type.'''
-    assert isinstance(df['#'], str)
-    assert isinstance(df['Name'], str)
-    assert isinstance(df['Platform'], str)
+def test_non_numeric_types():
+    '''tests if non-numeric values are of non-numeric type.'''
+    assert isinstance(df['Name'][0], np.str)
+    assert isinstance(df['Platform'][0], np.str)
+
+if __name__ == '__main__':
+    test_size_of_dataframe()
+    test_numeric_types()
+    test_non_numeric_types()
