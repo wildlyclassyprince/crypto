@@ -54,10 +54,11 @@ def test_size_of_dataframe():
     assert df.shape[1] == 10
 
 # Value types
-def test_numeric_types():
-    '''Tests numeric values if they are of numeric type.'''
-    return None
-
-def test_non_numeric_types():
-    '''Tests non-numeric values if they are of non-numeric type.'''
-    return None
+# Testing for value type is not advisable in Python since it's dynamically typed.
+#def test_numeric_types():
+#    '''Tests numeric values if they are of numeric type.'''
+#    return None
+#
+#def test_non_numeric_types():
+#    '''Tests non-numeric values if they are of non-numeric type.'''
+#    return None
