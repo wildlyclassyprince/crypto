@@ -26,7 +26,7 @@ df.columns = ['#', 'Name', 'Platform', 'MarketCap', 'Price', 'CirculatingSupply'
               'VolumeDay', 'pctHour', 'pctDay', 'pctWeek', 'PriceGraph']
 
 # We do not need this new column
-df = df.drop('PriceGraph', axis=1)
+df.drop('PriceGraph', axis=1, inplace=True)
 
 # Cleaning numeric data:
 df['Name'] = df['Name'].apply(lambda x: x.upper())
