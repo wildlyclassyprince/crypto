@@ -23,10 +23,10 @@ df = pd.read_html(URL, attrs={'id': 'assets-all'})[0]
 
 # New column names (there is now a new price-graph column):
 df.columns = ['#', 'Name', 'Platform', 'MarketCap', 'Price', 'CirculatingSupply',
-              'VolumeDay', 'pctHour', 'pctDay', 'pctWeek', 'PriceGraph']
+              'VolumeDay', 'pctHour', 'pctDay', 'pctWeek', 'NewColumn']
 
 # We do not need this new column
-df.drop('PriceGraph', axis=1, inplace=True)
+df.drop('NewColumn', axis=1, inplace=True)
 
 # Cleaning numeric data:
 df['Name'] = df['Name'].apply(lambda x: x.upper())
