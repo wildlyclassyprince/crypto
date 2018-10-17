@@ -21,11 +21,12 @@ URL = 'https://coinmarketcap.com/tokens/views/all'
 # Using Pandas to return the first table on the page
 df = pd.read_html(URL, attrs={'id': 'assets-all'})[0]
 
-# New column names (there is a new column at the end of the column list):
+# New column names (there is now a new price-graph column):
 df.columns = ['#', 'Name', 'Platform', 'MarketCap', 'Price', 'CirculatingSupply',
-              'VolumeDay', 'pctHour', 'pctDay', 'pctWeek', 'NewCol']
+              'VolumeDay', 'pctHour', 'pctDay', 'pctWeek', 'PriceGraph']
 
-df = df.drop('NewCol', axis=1)
+# We do not need this new column
+df = df.drop('PriceGraph', axis=1)
 
 # Cleaning numeric data:
 df['Name'] = df['Name'].apply(lambda x: x.upper())
