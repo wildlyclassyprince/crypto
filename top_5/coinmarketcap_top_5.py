@@ -8,10 +8,7 @@ Data is downloaded from https://coinmarketcap.com/tokens/views/all/
 
 __author__ = "wildlyclassyprince"
 __license__ = "GNU"
-__version__ = "0.1.0"
-__maintainer__ = "wildlyclassyprince"
 __email__ = "lihtumb@gmail.com"
-__status__ = "Initial Script"
 
 # The usual suspects ...
 from datetime import datetime
