@@ -52,13 +52,3 @@ coerce_df_columns_to_numeric(data=df, column_list=['MarketCap', 'Price', 'Circul
 def test_size_of_dataframe():
     '''Tests the size of the dataframe.'''
     assert df.shape[1] == 10
-
-# Value types
-# Testing for value type is not advisable in Python since it's dynamically typed.
-#def test_numeric_types():
-#    '''Tests numeric values if they are of numeric type.'''
-#    return None
-#
-#def test_non_numeric_types():
-#    '''Tests non-numeric values if they are of non-numeric type.'''
-#    return None
