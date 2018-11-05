@@ -9,7 +9,7 @@ A collection of blockchain tutorials and mock implementations. The purpose of th
 
 |Documents|
 |---|
-|**Blockchain Documents**<br>A collection of articles and other reading materials related to the blockchain.|
+|**Blockchain Documents**<br>Explaining the various approaches for guranteeing trust for blockchain applications. An exploration of the differences between *proof-of-work* and *proof-of-stake*.|
 
 |Data Playground|
 |---|
