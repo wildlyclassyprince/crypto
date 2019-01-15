@@ -93,10 +93,10 @@ def print_tabulated(df):
     print tabulate.tabulate(df, headers='keys', showindex='false', numalign='right')
 
 def report():
-    print('Title   : ' + 'CryptoAsset Market Capitalizations')
-    print ('       : ' + 'Etheruem with Market Cap')
-    print ('Source : ' + url)
-    print ('Time   : ' + str(datetime.now().strftime('%Y-%m-%d %H:%M')))
+    print('Title     : ' + 'CryptoAsset Market Capitalizations')
+    print ('Subtitle : ' + 'Etheruem with Market Cap')
+    print ('Source   : ' + url)
+    print ('Time     : ' + str(datetime.now().strftime('%Y-%m-%d %H:%M')))
     print ('')
     print ('')
     print_tabulated(sort_name(df))
